@@ -1,0 +1,15 @@
+export default {
+  myListingIcon: require("./myListingIcon/myListingIcon.png"),
+  jobIcon: require("./jobIcon/jobIcon.png"),
+  rentIcon: require("./rentIcon/rentIcon.png"),
+  storeIcon: require("./storeIcon/storeIcon.png"),
+  messageIcon: require("./messageIcon/messageIcon.png"),
+  coffeBeanIcon: require("./coffeBeans/coffeBeans.png"),
+  heartLikeIcon: require("./heartLike/heartLike.png"),
+  heartUnlikeIcon: require("./heartUnlike/heartUnlike.png"),
+  buyedTabIcon: require("./buyedTabIcon/buyedTabIcon.png"),
+  postTabIcon: require("./postTabIcon/postTabIcon.png"),
+  settingTabIcon: require("./settingTabIcon/settingTabIcon.png"),
+  calendarIcon: require("./calendarIcon/calendarIcon.png"),
+  coffeBeanOutlineMediumIcon: require("./coffeBeanOutlineMediumIcon/coffeBeanOutlineMediumIcon.png"),
+};

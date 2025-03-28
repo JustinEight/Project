@@ -1,20 +1,70 @@
 {
-  "root": "/Users/adam/Documents/Project",
-  "reactNativePath": "/Users/adam/Documents/Project/node_modules/react-native",
+  "root": "/Users/jena1nguyen/Desktop/another-app/Project",
+  "reactNativePath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native",
   "reactNativeVersion": "0.78",
   "dependencies": {
+    "@react-native-async-storage/async-storage": {
+      "root": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/@react-native-async-storage/async-storage",
+      "name": "@react-native-async-storage/async-storage",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/@react-native-async-storage/async-storage/RNCAsyncStorage.podspec",
+          "version": "2.1.2",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/@react-native-async-storage/async-storage/android",
+          "packageImportPath": "import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;",
+          "packageInstance": "new AsyncStoragePackage()",
+          "buildTypes": [],
+          "libraryName": "rnasyncstorage",
+          "componentDescriptors": [],
+          "cmakeListsPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
+    "@react-native-community/datetimepicker": {
+      "root": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/@react-native-community/datetimepicker",
+      "name": "@react-native-community/datetimepicker",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec",
+          "version": "8.3.0",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/@react-native-community/datetimepicker/android",
+          "packageImportPath": "import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;",
+          "packageInstance": "new RNDateTimePickerPackage()",
+          "buildTypes": [],
+          "libraryName": "RNDateTimePickerCGen",
+          "componentDescriptors": [],
+          "cmakeListsPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/@react-native-community/datetimepicker/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
     "react-native-gesture-handler": {
-      "root": "/Users/adam/Documents/Project/node_modules/react-native-gesture-handler",
+      "root": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-gesture-handler",
       "name": "react-native-gesture-handler",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/adam/Documents/Project/node_modules/react-native-gesture-handler/RNGestureHandler.podspec",
+          "podspecPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-gesture-handler/RNGestureHandler.podspec",
           "version": "2.24.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/adam/Documents/Project/node_modules/react-native-gesture-handler/android",
+          "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-gesture-handler/android",
           "packageImportPath": "import com.swmansion.gesturehandler.RNGestureHandlerPackage;",
           "packageInstance": "new RNGestureHandlerPackage()",
           "buildTypes": [],
@@ -23,7 +73,57 @@
             "RNGestureHandlerButtonComponentDescriptor",
             "RNGestureHandlerRootViewComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/adam/Documents/Project/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
+    "react-native-image-picker": {
+      "root": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-image-picker",
+      "name": "react-native-image-picker",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-image-picker/react-native-image-picker.podspec",
+          "version": "8.2.0",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-image-picker/android",
+          "packageImportPath": "import com.imagepicker.ImagePickerPackage;",
+          "packageInstance": "new ImagePickerPackage()",
+          "buildTypes": [],
+          "libraryName": "RNImagePickerSpec",
+          "componentDescriptors": [],
+          "cmakeListsPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-image-picker/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
+    "react-native-permissions": {
+      "root": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-permissions",
+      "name": "react-native-permissions",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-permissions/RNPermissions.podspec",
+          "version": "5.3.0",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-permissions/android",
+          "packageImportPath": "import com.zoontek.rnpermissions.RNPermissionsPackage;",
+          "packageInstance": "new RNPermissionsPackage()",
+          "buildTypes": [],
+          "libraryName": "RNPermissionsSpec",
+          "componentDescriptors": [],
+          "cmakeListsPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-permissions/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -32,23 +132,23 @@
       }
     },
     "react-native-reanimated": {
-      "root": "/Users/adam/Documents/Project/node_modules/react-native-reanimated",
+      "root": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-reanimated",
       "name": "react-native-reanimated",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/adam/Documents/Project/node_modules/react-native-reanimated/RNReanimated.podspec",
+          "podspecPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-reanimated/RNReanimated.podspec",
           "version": "3.17.1",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/adam/Documents/Project/node_modules/react-native-reanimated/android",
+          "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-reanimated/android",
           "packageImportPath": "import com.swmansion.reanimated.ReanimatedPackage;",
           "packageInstance": "new ReanimatedPackage()",
           "buildTypes": [],
           "libraryName": "rnreanimated",
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/adam/Documents/Project/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -57,17 +157,17 @@
       }
     },
     "react-native-safe-area-context": {
-      "root": "/Users/adam/Documents/Project/node_modules/react-native-safe-area-context",
+      "root": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-safe-area-context",
       "name": "react-native-safe-area-context",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/adam/Documents/Project/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec",
+          "podspecPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec",
           "version": "5.3.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/adam/Documents/Project/node_modules/react-native-safe-area-context/android",
+          "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-safe-area-context/android",
           "packageImportPath": "import com.th3rdwave.safeareacontext.SafeAreaContextPackage;",
           "packageInstance": "new SafeAreaContextPackage()",
           "buildTypes": [],
@@ -76,7 +176,7 @@
             "RNCSafeAreaProviderComponentDescriptor",
             "RNCSafeAreaViewComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/adam/Documents/Project/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -85,17 +185,17 @@
       }
     },
     "react-native-screens": {
-      "root": "/Users/adam/Documents/Project/node_modules/react-native-screens",
+      "root": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-screens",
       "name": "react-native-screens",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/adam/Documents/Project/node_modules/react-native-screens/RNScreens.podspec",
+          "podspecPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-screens/RNScreens.podspec",
           "version": "4.9.2",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/adam/Documents/Project/node_modules/react-native-screens/android",
+          "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-screens/android",
           "packageImportPath": "import com.swmansion.rnscreens.RNScreensPackage;",
           "packageInstance": "new RNScreensPackage()",
           "buildTypes": [],
@@ -113,7 +213,62 @@
             "RNSScreenContentWrapperComponentDescriptor",
             "RNSModalScreenComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/adam/Documents/Project/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
+    "react-native-svg": {
+      "root": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-svg",
+      "name": "react-native-svg",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-svg/RNSVG.podspec",
+          "version": "15.11.2",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-svg/android",
+          "packageImportPath": "import com.horcrux.svg.SvgPackage;",
+          "packageInstance": "new SvgPackage()",
+          "buildTypes": [],
+          "libraryName": "rnsvg",
+          "componentDescriptors": [
+            "RNSVGCircleComponentDescriptor",
+            "RNSVGClipPathComponentDescriptor",
+            "RNSVGDefsComponentDescriptor",
+            "RNSVGFeBlendComponentDescriptor",
+            "RNSVGFeColorMatrixComponentDescriptor",
+            "RNSVGFeCompositeComponentDescriptor",
+            "RNSVGFeFloodComponentDescriptor",
+            "RNSVGFeGaussianBlurComponentDescriptor",
+            "RNSVGFeMergeComponentDescriptor",
+            "RNSVGFeOffsetComponentDescriptor",
+            "RNSVGFilterComponentDescriptor",
+            "RNSVGEllipseComponentDescriptor",
+            "RNSVGForeignObjectComponentDescriptor",
+            "RNSVGGroupComponentDescriptor",
+            "RNSVGImageComponentDescriptor",
+            "RNSVGLinearGradientComponentDescriptor",
+            "RNSVGLineComponentDescriptor",
+            "RNSVGMarkerComponentDescriptor",
+            "RNSVGMaskComponentDescriptor",
+            "RNSVGPathComponentDescriptor",
+            "RNSVGPatternComponentDescriptor",
+            "RNSVGRadialGradientComponentDescriptor",
+            "RNSVGRectComponentDescriptor",
+            "RNSVGSvgViewAndroidComponentDescriptor",
+            "RNSVGSymbolComponentDescriptor",
+            "RNSVGTextComponentDescriptor",
+            "RNSVGTextPathComponentDescriptor",
+            "RNSVGTSpanComponentDescriptor",
+            "RNSVGUseComponentDescriptor"
+          ],
+          "cmakeListsPath": "/Users/jena1nguyen/Desktop/another-app/Project/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -284,7 +439,7 @@
         {
           "name": "--path <path>",
           "description": "Path to the React Native project root.",
-          "default": "/Users/adam/Documents/Project"
+          "default": "/Users/jena1nguyen/Desktop/another-app/Project"
         },
         {
           "name": "--platform <string>",
@@ -341,7 +496,7 @@
         {
           "name": "--terminal <string>",
           "description": "Launches the Metro Bundler in a new window using the specified terminal path.",
-          "default": "Apple_Terminal"
+          "default": "vscode"
         },
         {
           "name": "--binary-path <string>",
@@ -501,7 +656,7 @@
         {
           "name": "--terminal <string>",
           "description": "Launches the Metro Bundler in a new window using the specified terminal path.",
-          "default": "Apple_Terminal"
+          "default": "vscode"
         },
         {
           "name": "--appId <string>",
@@ -573,19 +728,22 @@
     "ios": {},
     "android": {}
   },
-  "assets": [],
+  "assets": [
+    "./src/assets/fonts"
+  ],
   "project": {
     "ios": {
-      "sourceDir": "/Users/adam/Documents/Project/ios",
+      "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/ios",
       "xcodeProject": {
         "name": "Project.xcworkspace",
         "path": ".",
         "isWorkspace": true
       },
+      "automaticPodsInstallation": false,
       "assets": []
     },
     "android": {
-      "sourceDir": "/Users/adam/Documents/Project/android",
+      "sourceDir": "/Users/jena1nguyen/Desktop/another-app/Project/android",
       "appName": "app",
       "packageName": "com.project",
       "applicationId": "com.project",

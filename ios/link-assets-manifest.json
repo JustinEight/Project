@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/PortraitScriptBounceRegular.ttf",
+      "sha1": "97e832f92f0bf0681638dd27c850d1c9f4fdfb13"
+    },
+    {
+      "path": "src/assets/fonts/Quicksand.ttf",
+      "sha1": "4ee75a4e8cdc8d7cb73c9d37859d5e96da254ecb"
+    }
+  ]
+}

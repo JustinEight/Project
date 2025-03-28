@@ -1,0 +1,7 @@
+{
+  "replaceAttrValues": {
+    "color": "{props.fill}",
+    "color1": "{props.fill1}",
+    "borderColor": "{props.stroke}"
+  }
+}

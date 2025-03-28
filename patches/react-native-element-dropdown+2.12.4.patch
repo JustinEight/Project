@@ -1,0 +1,64 @@
+diff --git a/node_modules/react-native-element-dropdown/src/components/MultiSelect/index.tsx b/node_modules/react-native-element-dropdown/src/components/MultiSelect/index.tsx
+index f76c4aa..e285ac2 100644
+--- a/node_modules/react-native-element-dropdown/src/components/MultiSelect/index.tsx
++++ b/node_modules/react-native-element-dropdown/src/components/MultiSelect/index.tsx
+@@ -410,6 +410,49 @@ const MultiSelectComponent = React.forwardRef<
+   );
+ 
+   const _renderDropdown = () => {
++    const list = data.filter((e: any) => {
++      const check = value?.indexOf(_get(e, valueField));      
++      if (check !== -1) {
++        return e;
++      }
++    });    
++    if(value?.length&&list?.length)
++      {
++      return <TouchableWithoutFeedback
++      testID={testID}
++      accessible={!!accessibilityLabel}
++      accessibilityLabel={accessibilityLabel}
++      onPress={showOrClose}
++    >
++      <View style={styles.dropdown}>
++        <Text
++          style={StyleSheet.flatten([
++            styles.textItem,
++            placeholderStyle,
++            font(),
++          ])}
++          {...selectedTextProps}
++        >
++          {list?.map(item=> item?.label)?.join(' / ')}
++        </Text>
++        <View style={{height: 20, width:20}}>
++          {renderRightIcon ? (
++            renderRightIcon(visible)
++          ) : (
++            <Image
++              source={ic_down}
++              style={StyleSheet.flatten([
++                styles.icon,
++                { tintColor: iconColor },
++                iconStyle,
++              ])}
++            />
++          )}
++        </View>
++        
++      </View>
++    </TouchableWithoutFeedback>
++    } else
+     return (
+       <TouchableWithoutFeedback
+         testID={testID}
+@@ -856,9 +899,6 @@ const MultiSelectComponent = React.forwardRef<
+         {_renderDropdown()}
+         {_renderModal()}
+       </View>
+-      {(!visible || alwaysRenderSelectedItem) &&
+-        visibleSelectedItem &&
+-        _renderItemSelected(false)}
+     </>
+   );
+ });

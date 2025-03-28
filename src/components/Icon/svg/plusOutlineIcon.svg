@@ -1,0 +1,6 @@
+<svg width="25" height="24" viewBox="0 0 25 24" >
+<!-- <rect x="1.5" y="1" width="22" height="22" rx="11" fill='rgba(0,0,0,0)' fill-opacity="0.2"/> -->
+<rect x="1.5" y="1" width="22" height="22" rx="11" stroke="#EDECF0" stroke-width="2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 8C12.7761 8 13 8.22386 13 8.5V15.5C13 15.7761 12.7761 16 12.5 16C12.2239 16 12 15.7761 12 15.5V8.5C12 8.22386 12.2239 8 12.5 8Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 12C8.5 11.7239 8.72386 11.5 9 11.5H16C16.2761 11.5 16.5 11.7239 16.5 12C16.5 12.2761 16.2761 12.5 16 12.5H9C8.72386 12.5 8.5 12.2761 8.5 12Z" fill="white"/>
+</svg>

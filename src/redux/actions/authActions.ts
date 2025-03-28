@@ -1,87 +1,66 @@
 import {
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-  LOGOUT,
-  FETCH_DATA_REQUEST,
-  FETCH_DATA_SUCCESS,
-  FETCH_DATA_FAILURE,
-  AuthActionTypes,
-} from '../types';
-import {ThunkAction} from 'redux-thunk';
-import {RootState} from '../reducers';
-import {Action} from 'redux';
-import {User, AppData} from '../../types';
+  ApiPayload,
+  GetUserProfilePayload,
+  LoginPayload,
+  RegisterPayload,
+  ResendOTPPayload,
+  ResetPasswordPayload,
+  VerifyOTPPayload,
+} from "@redux/type";
+import { createAction } from "@reduxjs/toolkit";
 
-// Define ThunkResult type for async actions
-type ThunkResult<R> = ThunkAction<R, RootState, undefined, Action>;
+// LOGIN //
+export const LOGIN = "LOGIN";
+const loginRequest = createAction<{ data: LoginPayload } & ApiPayload>(LOGIN);
 
-// Hành động Login
-export const login = (email: string, password: string): ThunkResult<void> => {
-  return async dispatch => {
-    dispatch({type: LOGIN_REQUEST});
+// SIGN UP //
+export const REGISTER = "REGISTER";
+const signUpAction = createAction<{ data: RegisterPayload } & ApiPayload>(
+  REGISTER
+);
 
-    try {
-      // Mô phỏng gọi API đăng nhập
-      await new Promise(resolve => setTimeout(resolve, 1000));
+// RESEND_OTP //
+export const RESEND_OTP = "RESEND_OTP";
+const resendOtpAction = createAction<{ data: ResendOTPPayload } & ApiPayload>(
+  RESEND_OTP
+);
 
-      // Mô phỏng dữ liệu trả về từ API
-      const userData: User = {
-        id: '1',
-        name: 'Người Dùng Demo',
-        email: email,
-        role: 'user',
-      };
+// VERIFY_OTP //
+export const VERIFY_OTP = "VERIFY_OTP";
+const verifyOtpAction = createAction<{ data: ResendOTPPayload } & ApiPayload>(
+  VERIFY_OTP
+);
 
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: userData,
-      });
-    } catch (error) {
-      dispatch({
-        type: LOGIN_FAILURE,
-        payload: error instanceof Error ? error.message : 'Đăng nhập thất bại',
-      });
-    }
-  };
-};
+// RESET_PASSWORD //
+export const RESET_PASSWORD = "RESET_PASSWORD";
+const resetPasswordAction = createAction<
+  { data: ResetPasswordPayload } & ApiPayload
+>(RESET_PASSWORD);
 
-// Hành động Logout
-export const logout = (): AuthActionTypes => {
-  return {
-    type: LOGOUT,
-  };
-};
+// change password
+export const FORGOT_PASSWORD = "FORGOT_PASSWORD";
+const forgotPasswordAction = createAction<
+  { data: ResendOTPPayload } & ApiPayload
+>(FORGOT_PASSWORD);
 
-// Hành động Fetch Data (sử dụng Redux Thunk)
-export const fetchData = (): ThunkResult<void> => {
-  return async dispatch => {
-    dispatch({type: FETCH_DATA_REQUEST});
+export const GET_USER_PROFILE = "GET_USER_PROFILE";
+const getUserProfileAction = createAction<
+  { data: GetUserProfilePayload } & ApiPayload
+>(GET_USER_PROFILE);
 
-    try {
-      // Mô phỏng API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+export const SET_USER_PROFILE = "SET_USER_PROFILE";
+const setUserProfileAction = createAction<any>(SET_USER_PROFILE);
 
-      // Mô phỏng dữ liệu
-      const mockData: AppData = {
-        items: [
-          {id: 1, name: 'Item 1'},
-          {id: 2, name: 'Item 2'},
-          {id: 3, name: 'Item 3'},
-        ],
-        timestamp: new Date().toISOString(),
-      };
-
-      dispatch({
-        type: FETCH_DATA_SUCCESS,
-        payload: mockData,
-      });
-    } catch (error) {
-      dispatch({
-        type: FETCH_DATA_FAILURE,
-        payload:
-          error instanceof Error ? error.message : 'Không thể tải dữ liệu',
-      });
-    }
-  };
+export const RESET_LOGIN = "RESET_LOGIN";
+const resetLoginAction = createAction(RESET_LOGIN);
+export {
+  loginRequest,
+  signUpAction,
+  resendOtpAction,
+  verifyOtpAction,
+  forgotPasswordAction,
+  resetPasswordAction,
+  getUserProfileAction,
+  setUserProfileAction,
+  resetLoginAction,
 };

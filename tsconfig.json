@@ -9,9 +9,18 @@
     "isolatedModules": true,
     "strict": true,
     "moduleResolution": "node",
-    "baseUrl": "./",
+    "baseUrl": "./" ,
     "paths": {
-      "*": ["src/*"]
+      "@components/*": ["src/components/*"], // gốc lúc này là src cho nên sẽ là ./components
+      "@assets/*": ["src/assets/*"],   
+      "@navigation/*":["src/navigation/*"],
+      "@screens/*":["src/screens/*"],
+      "@constants/*":["src/constants/*"] ,
+      "@models/*":["src/models/*"],
+      "@hooks/*":["src/hooks/*"],
+      "@utils/*":["src/utils/*"],
+      "@redux/*": ["src/redux/*"],
+      "@services/*": ["src/services/*"],   
     },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

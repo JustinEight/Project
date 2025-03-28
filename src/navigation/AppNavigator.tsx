@@ -1,51 +1,83 @@
-import React from 'react';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import HomeScreen from '../screens/HomeScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import CustomDrawer from '../components/CustomDrawer';
-import {DrawerParamList} from './types';
+import { NavigationContainer } from "@react-navigation/native";
+import React, { useRef, useEffect } from "react";
+import { AppState, StatusBar } from "react-native";
+import { navigationRef } from "./index";
+import MainStack from "./MainStack";
 
-const Drawer = createDrawerNavigator<DrawerParamList>();
+const AppNavigator = () => {
+  const routeNameRef = useRef<string>(null);
+  // App on foreground handle
+  const oldAppState = useRef(AppState.currentState);
 
-const AppNavigator: React.FC = () => {
+  useEffect(() => {
+    const handleAppStateChange = (nextAppState: any) => {
+      if (
+        oldAppState.current.match(/inactive|background/) &&
+        nextAppState === "active"
+      ) {
+      }
+
+      oldAppState.current = nextAppState;
+    };
+
+    const subscription = AppState.addEventListener(
+      "change",
+      handleAppStateChange
+    );
+    return function cleanup() {
+      subscription.remove();
+    };
+    //   }, [dispatch]);
+  }, []);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener("change", (nextAppState) => {
+      if (nextAppState.match(/inactive|background/)) {
+        if (nextAppState.match(/inactive/)) {
+        }
+        console.log("App go to inactive|background");
+        // TODO:
+      } else if (nextAppState.match(/active/)) {
+      }
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, []);
+
   return (
-    <Drawer.Navigator
-      drawerContent={props => <CustomDrawer {...props} />}
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: '#f4511e',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-        drawerActiveTintColor: '#f4511e',
-        drawerInactiveTintColor: 'gray',
-      }}>
-      <Drawer.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          title: 'Trang chủ',
-        }}
+    <NavigationContainer
+      ref={navigationRef}
+      onReady={() => {
+        const currentRouteName =
+          navigationRef?.current?.getCurrentRoute()?.name;
+        routeNameRef.current = currentRouteName;
+      }}
+      onStateChange={async () => {
+        const previousRouteName = routeNameRef.current;
+        const currentRouteName =
+          navigationRef?.current?.getCurrentRoute()?.name;
+        const routeParams = navigationRef?.current?.getCurrentRoute()?.params;
+
+        if (previousRouteName !== currentRouteName) {
+          // The line below uses the tracker
+          console.log("currentRouteName: ", currentRouteName);
+          if (routeParams) {
+            console.log("currentRouteParams: ", routeParams ?? {});
+          }
+        }
+        // Save the current route name for later comparison
+        routeNameRef.current = currentRouteName;
+      }}
+    >
+      <StatusBar
+        barStyle="dark-content"
+        translucent
+        backgroundColor="transparent"
       />
-      <Drawer.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          title: 'Hồ sơ',
-        }}
-      />
-      <Drawer.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{
-          title: 'Cài đặt',
-        }}
-      />
-    </Drawer.Navigator>
+      <MainStack />
+    </NavigationContainer>
   );
 };
-
 export default AppNavigator;
