@@ -39,18 +39,7 @@ const TextInput = ({
 
   return (
     <View style={style}>
-      {label ? (
-        <Text
-          style={{
-            color: "#2C333A",
-            fontSize: 13,
-            fontWeight: "600",
-            marginBottom: 2,
-          }}
-        >
-          {label}
-        </Text>
-      ) : null}
+      {label ? <Text style={styles.label}>{label}</Text> : null}
       <View
         style={[
           styles.container,
@@ -74,9 +63,7 @@ const TextInput = ({
         {rightIcon}
       </View>
       {note ? (
-        <Text
-          style={{ fontSize: 12, color: noteColor || "#8590A2", marginTop: 2 }}
-        >
+        <Text style={[styles.noteText, noteColor ? { color: noteColor } : {}]}>
           {note}
         </Text>
       ) : null}

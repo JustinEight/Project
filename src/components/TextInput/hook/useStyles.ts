@@ -32,11 +32,17 @@ export const useStyles = () => {
     bottomBorder: {
       borderBottomWidth: 1,
       borderBottomColor: colors.white,
-      // backgroundColor: colors.transparent,
     },
     bottomBorderText: {
       color: colors.white,
       marginBottom: -18,
     },
+    label: {
+      color: colors.gunmetalBlue,
+      fontSize: 13,
+      fontWeight: "600",
+      marginBottom: 2,
+    },
+    noteText: { fontSize: 12, color: colors.manateeBlue, marginTop: 2 },
   });
 };

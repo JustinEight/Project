@@ -12,7 +12,8 @@ const HFTextInput = ({
   rules,
   clearError,
   ...props
-}: UseControllerProps<FieldValues, any> & TextInputProps) => {
+}: UseControllerProps<FieldValues, any> &
+  TextInputProps & { clearError?: () => void }) => {
   const {
     field: { value, onChange },
     fieldState: { error },

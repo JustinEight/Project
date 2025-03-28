@@ -16,7 +16,7 @@ function* loginSaga(action: PayloadAction<any>) {
   } finally {
   }
 }
-function* registerSaga(action: PayloadAction<any>) {    
+function* registerSaga(action: PayloadAction<any>) {
   try {
     const response: any = yield call(
       AuthenticationApi.register,
@@ -64,6 +64,7 @@ function* resetPasswordSaga(action: PayloadAction<any>) {
 
     action.payload?.callback({ data: response });
   } catch (error) {
+    action.payload?.callback({ error });
   } finally {
   }
 }

@@ -1,0 +1,56 @@
+{
+  "common": {
+    "titleApp": "decaf&"
+  },
+  "button": {
+    "confirm": "Xác Nhận",
+    "resetPassword": "Tạo Mật khẩu",
+    "signIn": "Đăng nhập",
+    "signUp": "Tạo tài khoản",
+    "camera": "Máy ảnh",
+    "photoLibrary": "Thư viện ảnh",
+    "cancel": "Trở về"
+  },
+  "getOTP": {
+    "title": "Nhập mã xác nhận",
+    "sendEmail": "Mã OTP đã được gửi đến email",
+    "checkEmail": "Kiểm tra thêm Hòm thư rác nếu không thấy OTP.",
+    "resendText": " Gửi lại (trong {{minutes}}s)",
+    "resendOtp": "Gửi lại mã OTP",
+    "notReceives": "Không nhận được mã?"
+  },
+  "validation": {
+    "passwordNotMatch": "Mật khẩu không khớp",
+    "passwordValid": "Mật khẩu từ 6-12 kí tự & có ít nhất 1 kí tự viết hoa",
+    "invalidEmail": "Địa chỉ email không hợp lệ",
+    "emailRequire": "Nhập email để tiếp tục!"
+  },
+  "newPassword": {
+    "title": "Mật Khẩu Mới",
+    "confirmNewPassword": "Xác nhận mật khẩu mới"
+  },
+  "signIn": {
+    "username": "Tên người dùng/Email",
+    "password": "Mật khẩu",
+    "title": "Đăng nhập",
+    "forgotPassword": "Quên mật khẩu",
+    "staySignedIn": "Duy trì đăng nhập",
+    "orSignInWith": "HOẶC ĐĂNG NHẬP BẰNG"
+  },
+  "signUp": {
+    "title": "Tài Khoản Mới",
+    "email": "Tên đăng ký",
+    "confirmPassword": "Xác nhận lại mật khẩu",
+    "password": "Mật khẩu"
+  },
+  "chatScreen": {
+    "title": "Tin nhắn",
+    "emptyPage": {
+      "title": "Chưa có tin nhắn nào",
+      "subTitle": "Đăng bán mặt hàng của bạn để hàng xóm hỏi mua nào!"
+    },
+    "all": "Tất cả",
+    "buyer": "Người mua",
+    "seller": "Người bán"
+  }
+}

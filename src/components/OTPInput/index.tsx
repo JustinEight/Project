@@ -1,6 +1,7 @@
 import Text from "@components/Text";
 import { useCountDownTimer } from "@hooks/useCountDownTimer";
 import { useTheme } from "@hooks/useTheme";
+import { translate } from "@localization/translate";
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { OtpInput, OtpInputProps } from "react-native-otp-entry";
@@ -21,11 +22,20 @@ const useStyles = () => {
       fontSize: 22,
       padding: 0,
     },
-    note: { color: colors.white, fontWeight: 700, fontSize: 14 },
+    note: { color: colors.white, fontWeight: "700", fontSize: 14 },
+    pinText: { color: colors.white },
+    notReceives: {
+      textAlign: "center",
+      marginTop: 16,
+      color: colors.white,
+      fontSize: 14,
+    },
+    resendOtp: { fontWeight: "700", color: colors.white, fontSize: 14 },
+    focusColor: { color: colors.white },
   });
 };
 interface OTPInputProps extends OtpInputProps {
-  onResendOtp?: ({ onSuccess }: { onSuccess?: () => void }) => void;
+  onResendOtp?: ({ onSuccess }: { onSuccess: () => void }) => void;
   children: React.ReactElement;
 }
 const OTPInput = ({ children, onResendOtp, ...props }: OTPInputProps) => {
@@ -38,7 +48,7 @@ const OTPInput = ({ children, onResendOtp, ...props }: OTPInputProps) => {
         <OtpInput
           numberOfDigits={PIN_COUNT}
           autoFocus
-          focusColor="white"
+          focusColor={styles.focusColor.color}
           type="numeric"
           focusStickBlinkingDuration={500}
           textInputProps={{
@@ -47,25 +57,19 @@ const OTPInput = ({ children, onResendOtp, ...props }: OTPInputProps) => {
           theme={{
             containerStyle: styles.otpInputView,
             pinCodeContainerStyle: styles.codeInputView,
-            pinCodeTextStyle: { color: "white" },
+            pinCodeTextStyle: styles.pinText,
           }}
           {...props}
         />
       </View>
 
       {children}
-      <Text
-        style={{
-          textAlign: "center",
-          marginTop: 16,
-          color: "white",
-          fontSize: 14,
-        }}
-      >
-        Không nhận được mã?{"\n"}
+      <Text style={styles.notReceives}>
+        {translate("getOTP.notReceives")}
+        {"\n"}
         {isTimeout ? (
           <Text
-            style={{ fontWeight: 700, color: "white", fontSize: 14 }}
+            style={styles.resendOtp}
             onPress={() => {
               onResendOtp?.({
                 onSuccess: () => {
@@ -74,11 +78,13 @@ const OTPInput = ({ children, onResendOtp, ...props }: OTPInputProps) => {
               });
             }}
           >
-            Gửi lại mã OTP
+            {translate("getOTP.resendOtp")}
           </Text>
         ) : (
           <Text style={styles.note}>
-            Gửi lại (trong {Math.floor(timer / 1000)}s)
+            {translate("getOTP.resendText", {
+              minutes: Math.floor(timer / 1000),
+            })}
           </Text>
         )}
       </Text>

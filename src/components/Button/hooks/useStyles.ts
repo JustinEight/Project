@@ -8,10 +8,8 @@ export const useStyles = (
   isDisable?: boolean
 ) => {
   const { colors, alpha } = useTheme();
-  const mainColorOverride =
-    (mainColor || colors.white) + (isDisable ? alpha.alpha_10 : "");
+  const mainColorOverride = mainColor || colors.white;
   const radiusOverride = radius || 8;
-  const isMainColorWithAlpha = isDisable && mainColor && mainColor?.length > 7;
   return StyleSheet.create({
     container: {
       flexDirection: "row",
@@ -27,8 +25,8 @@ export const useStyles = (
       opacity: isDisable ? 0.5 : 1,
     },
     bgContainer: {
-      backgroundColor: isMainColorWithAlpha ? mainColor : mainColorOverride,
-      opacity: isMainColorWithAlpha ? 0.5 : 1,
+      backgroundColor: mainColorOverride,
+      opacity: isDisable ? 0.5 : 1,
     },
     text: {
       color: textColor,

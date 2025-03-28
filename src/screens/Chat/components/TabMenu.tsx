@@ -1,7 +1,10 @@
+import { ApplicationTheme } from "@assets/theme";
 import { ChatIconAll } from "@components/Icon";
 import Text from "@components/Text";
-import React, { useState } from "react";
-import { TouchableOpacity, View, ViewStyle } from "react-native";
+import { useTheme } from "@hooks/useTheme";
+import { translate } from "@localization/translate";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View, ViewStyle } from "react-native";
 
 const TabMenu = ({
   style,
@@ -14,12 +17,15 @@ const TabMenu = ({
 }) => {
   const data = [
     {
-      label: "Tất cả",
+      label: translate("chatScreen.all"),
       icon: (color: string) => <ChatIconAll stroke={color} />,
     },
-    { label: "Người mua" },
-    { label: "Người bán" },
+    { label: translate("chatScreen.buyer") },
+    { label: translate("chatScreen.seller") },
   ];
+
+  const theme = useTheme();
+  const styles = useStyles(theme);
   return (
     <View
       style={[
@@ -34,9 +40,6 @@ const TabMenu = ({
     >
       {data?.map((item, index) => {
         const selected = currentIndex === index;
-        const Icon = item?.icon
-          ? item?.icon(selected ? "#3A304B" : "#738496")
-          : null;
 
         if (selected) {
           return (
@@ -44,20 +47,10 @@ const TabMenu = ({
               onPress={() => {
                 setCurrentIndex(index);
               }}
-              style={{
-                height: 36,
-                borderRadius: 100,
-                backgroundColor: "#D8D1E5",
-                flexDirection: "row",
-                alignItems: "center",
-                paddingHorizontal: 12,
-                gap: 4,
-                borderColor: "#D8D1E5",
-                borderWidth: 1,
-              }}
+              style={styles.button}
             >
-              {Icon}
-              <Text>{item?.label}</Text>
+              {item?.icon ? item?.icon(styles.activeItem.color) : null}
+              <Text style={styles.activeItem}>{item?.label}</Text>
             </TouchableOpacity>
           );
         }
@@ -67,24 +60,36 @@ const TabMenu = ({
             onPress={() => {
               setCurrentIndex(index);
             }}
-            style={{
-              height: 36,
-              gap: 4,
-              borderRadius: 100,
-              paddingHorizontal: 12,
-              flexDirection: "row",
-              borderColor: "#B3B9C4",
-              borderWidth: 1,
-              alignItems: "center",
-            }}
+            style={[styles.button, styles.inactiveButton]}
           >
-            {Icon}
-            <Text style={{ color: "#738496" }}>{item?.label}</Text>
+            {item?.icon ? item?.icon(styles.inactiveItem.color) : null}
+            <Text style={styles.inactiveItem}>{item?.label}</Text>
           </TouchableOpacity>
         );
       })}
     </View>
   );
+};
+
+const useStyles = ({ colors }: ApplicationTheme) => {
+  return StyleSheet.create({
+    button: {
+      height: 36,
+      borderRadius: 100,
+      backgroundColor: colors.blueChalkViolet,
+      flexDirection: "row",
+      alignItems: "center",
+      paddingHorizontal: 12,
+      gap: 4,
+      borderColor: colors.blueChalkViolet,
+      borderWidth: 1,
+    },
+    inactiveButton: {
+      borderColor: colors.heatherBlue,
+    },
+    inactiveItem: { color: colors.lightSlateGrey },
+    activeItem: { color: colors.jaggerViolet },
+  });
 };
 
 export default TabMenu;

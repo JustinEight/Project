@@ -2,7 +2,6 @@ export const StackName = {
   HomeScreen: "HomeScreen",
   SignInScreen: "SignInScreen",
   SignUpScreen: "SignUpScreen",
-  ForgotPaswordScreen: "ForgotPaswordScreen",
   GetOTPScreen: "GetOTPScreen",
   SearchPage: "SearchPage",
   MainDrawer: "MainDrawer",

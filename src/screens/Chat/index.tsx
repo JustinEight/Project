@@ -6,10 +6,13 @@ import TabMenu from "./components/TabMenu";
 import Footer from "@screens/HomeScreen/components/Footer";
 import ChatItem from "./components/ChatItem";
 import EmptyPage from "./components/EmptyPage";
+import { translate } from "@localization/translate";
+import { useTheme } from "@hooks/useTheme";
 
 const ChatScreen = () => {
   const { top } = useSafeAreaInsets();
   const [value, setValue] = useState(0);
+  const { colors } = useTheme();
 
   const [chatData, setChatData] = useState({ data: new Array(6).fill(0) });
 
@@ -88,11 +91,11 @@ const ChatScreen = () => {
         style={{
           fontSize: 18,
           fontWeight: "700",
-          color: "#1D2125",
+          color: colors.cinderGrey,
           marginLeft: 16,
         }}
       >
-        Tin nhắn
+        {translate("chatScreen.title")}
       </Text>
       <TabMenu
         style={{ marginTop: 20 }}

@@ -19,7 +19,13 @@ const Modal = ({
   ...props
 }: ModalProps) => {
   return (
-    <RNModal onRequestClose={requestClose} transparent {...props} style={style}>
+    <RNModal
+      onRequestClose={requestClose}
+      transparent
+      animationType="slide"
+      {...props}
+      style={style}
+    >
       <TouchableOpacity
         style={[{ flex: 1, backgroundColor: "#00000080" }, containerStyle]}
         onPress={() => {

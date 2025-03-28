@@ -5,7 +5,21 @@ const commonColors = {
   baliBlue: "#919EAB", //rgb(145, 158, 171)
   fireBrickRed: "#A51C30", //rgb(165, 28, 48)
   midnightExpressBlue: "#212B36", //rgb(33, 43, 54)
-  bayouxBlue: "#637381",
+  suvaGrey: "#888888",
+  gunmetalBlue: "#2C333A",
+  manateeBlue: "#8590A2",
+  norwayGreen: "#A2B17B",
+  heatherBlue: "#B3B9C4",
+  bilobaFlowerViolet: "#9F86C9",
+  baliHaiBlue: "#8696A7",
+  rhinoBlue: "#454F59",
+  jaggerViolet: "#3A304B",
+  tolopeaViolet: "#1D1825",
+  zirconGrey: "#DCDFE4",
+  blueChalkViolet: "#D8D1E5",
+  bayouxBlue: "#596773",
+  cinderGrey: "#1D2125",
+  lightSlateGrey: "#738496",
 };
 
 export const lightColors = {
@@ -42,7 +56,7 @@ export const fonts = {
   MTDPortraitScriptBounceRegular: "PortraitScriptBounceRegular",
   Quicksand: "Quicksand",
 };
-interface ApplicationTheme {
+export interface ApplicationTheme {
   colors: typeof lightColors;
   alpha: typeof alpha;
   fonts: typeof fonts;

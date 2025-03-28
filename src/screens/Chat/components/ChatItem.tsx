@@ -1,12 +1,16 @@
 import images from "@assets/images";
+import { ApplicationTheme } from "@assets/theme";
 import Image from "@components/Image";
 import Text from "@components/Text";
+import { useTheme } from "@hooks/useTheme";
 import { navigate } from "@navigation/index";
 import { StackName } from "@navigation/StackName";
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 const ChatItem = ({ item }) => {
+  const theme = useTheme();
+  const styles = useStyles(theme);
   const isRead = true;
   return (
     <TouchableOpacity
@@ -37,43 +41,45 @@ const ChatItem = ({ item }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-    padding: 8,
-    borderRadius: 12,
-    backgroundColor: "#FFFFFF",
-  },
-  avatar: { height: 54, width: 54, borderRadius: 6 },
-  content: { flexDirection: "row", alignItems: "center" },
-  title: {
-    fontSize: 12,
-    fontWeight: "700",
-    color: "#000000",
-  },
-  chatContent: {
-    fontSize: 12,
-    fontWeight: "700",
-    color: "#596773",
-    flex: 1,
-  },
-  unreadIndicator: {
-    height: 8,
-    width: 8,
-    borderRadius: 4,
-    backgroundColor: "#9F86C9",
-  },
-  time: {
-    marginTop: 4,
-    fontSize: 12,
-    color: "#8590A2",
-    textAlign: "right",
-  },
-  chatRead: {
-    fontWeight: "400",
-  },
-});
+const useStyles = ({ colors }: ApplicationTheme) => {
+  return StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 8,
+      padding: 8,
+      borderRadius: 12,
+      backgroundColor: colors.white,
+    },
+    avatar: { height: 54, width: 54, borderRadius: 6 },
+    content: { flexDirection: "row", alignItems: "center" },
+    title: {
+      fontSize: 12,
+      fontWeight: "700",
+      color: colors.black,
+    },
+    chatContent: {
+      fontSize: 12,
+      fontWeight: "700",
+      color: colors.bayouxBlue,
+      flex: 1,
+    },
+    unreadIndicator: {
+      height: 8,
+      width: 8,
+      borderRadius: 4,
+      backgroundColor: colors.bilobaFlowerViolet,
+    },
+    time: {
+      marginTop: 4,
+      fontSize: 12,
+      color: colors.manateeBlue,
+      textAlign: "right",
+    },
+    chatRead: {
+      fontWeight: "400",
+    },
+  });
+};
 
 export default ChatItem;

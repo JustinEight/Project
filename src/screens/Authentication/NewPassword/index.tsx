@@ -1,77 +1,98 @@
 import images from "@assets/images";
+import Navigator from "@assets/Modules/Modules";
+import { ApplicationTheme } from "@assets/theme";
 import Button from "@components/Button";
 import HFTextInput from "@components/HookForm/HFTextInput";
 import Image from "@components/Image";
 import Text from "@components/Text";
-import TextInput from "@components/TextInput";
+import { ToastType } from "@components/Toast/ToastType";
+import { PASSWORD_REGEX } from "@constants/index";
 import { useTheme } from "@hooks/useTheme";
+import { translate } from "@localization/translate";
 import { reset } from "@navigation/index";
 import { StackName } from "@navigation/StackName";
 import { useRoute } from "@react-navigation/native";
 import useAuthActions from "@redux/useActions/useAuthActions";
+import { isArray } from "lodash";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import { StyleSheet, View } from "react-native";
 
 const NewPasswordScreen = () => {
-  const { colors } = useTheme();
+  const theme = useTheme();
+  const { colors } = theme;
   const { resetPassword } = useAuthActions();
   const route = useRoute();
-  const { user, otp } = route?.params || {};
-  const {
-    control,
-    formState: { errors },
-    watch,
-    handleSubmit,
-    setValue,
-    setError,
-    clearErrors,
-  } = useForm();
+  const user = route?.params?.user || "";
+  const otp = route?.params?.otp || "";
+  const styles = useStyles(theme);
+
+  const { control, watch, setError, clearErrors, handleSubmit } = useForm();
 
   const formValue = watch();
 
   const formDisabled =
-    !formValue?.password?.trim() && !formValue?.confirmPassword?.trim();
+    !formValue?.password?.trim() || !formValue?.confirmPassword?.trim();
+
+  const handleResetPasswod = ({ password, confirmPassword }: FieldValues) => {
+    Navigator.showLoading();
+    resetPassword({
+      data: {
+        username: user,
+        otp: otp,
+        newPassword: password,
+        confirmNewPassword: confirmPassword,
+      },
+      callback: ({ data, error }) => {
+        if (data) {
+          reset(StackName.SignInScreen);
+        } else if (error) {
+          const message =
+            typeof error?.responseException?.exceptionMessage === "string"
+              ? error?.responseException?.exceptionMessage
+              : isArray(
+                  error?.responseException?.exceptionMessage?.errors
+                    ?.NewPassword
+                )
+              ? error?.responseException?.exceptionMessage?.errors?.NewPassword?.join(
+                  ", "
+                )
+              : "Something went wrong";
+
+          Navigator?.showToastMsg({
+            type: ToastType.ERROR,
+            message: message,
+          });
+        }
+        Navigator.showLoading();
+      },
+    });
+  };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        paddingHorizontal: 24,
-        backgroundColor: colors.white,
-      }}
-    >
+    <View style={styles.container}>
       <Image
         source={images.newPasswordBackground}
-        style={StyleSheet.absoluteFillObject}
+        style={styles.imageBackground}
       />
-
-      <View
-        style={{ backgroundColor: "#88888880", borderRadius: 25, padding: 24 }}
-      >
-        <Text
-          style={{
-            fontSize: 20,
-            fontWeight: 700,
-            marginBottom: 16,
-            color: colors.white,
-          }}
-        >
-          Mật Khẩu Mới
-        </Text>
+      <View style={styles.content}>
+        <Text style={styles.title}>{translate("newPassword.title")}</Text>
         <HFTextInput
-          placeholder="Mật khẩu mới"
+          placeholder={translate("newPassword.title")}
           bottomBorder
           secureTextEntry
           rules={{
+            pattern: {
+              value: PASSWORD_REGEX,
+              message: translate("validation.passwordValid"),
+            },
             validate: (value: string) => {
               if (
                 value !== formValue?.confirmPassword &&
                 formValue?.confirmPassword
               ) {
                 setError("confirmPassword", {
-                  message: "Your password does not match",
+                  message: translate("validation.passwordNotMatch"),
                 });
               } else if (
                 value === formValue?.confirmPassword &&
@@ -84,17 +105,23 @@ const NewPasswordScreen = () => {
           }}
           control={control}
           name={"password"}
+          note={"*" + translate("validation.passwordValid")}
+          noteColor={colors.white}
         />
         <HFTextInput
-          placeholder="Xác nhận mật khẩu mới"
+          placeholder={translate("newPassword.confirmNewPassword")}
           bottomBorder
           control={control}
           name={"confirmPassword"}
           secureTextEntry
           rules={{
+            pattern: {
+              value: PASSWORD_REGEX,
+              message: translate("validation.passwordValid"),
+            },
             validate: (value: string) => {
               if (value !== formValue?.password) {
-                return "Your password does not match";
+                return translate("validation.passwordNotMatch");
               }
             },
           }}
@@ -103,28 +130,42 @@ const NewPasswordScreen = () => {
           disabled={formDisabled}
           mainColor={colors.black}
           textColor={colors.white}
-          style={{ borderRadius: 70, marginTop: 24 }}
-          onPress={() => {
-            resetPassword({
-              data: {
-                username: user,
-                otp: otp,
-                newPassword: formValue?.password,
-                confirmNewPassword: formValue?.confirmPassword,
-              },
-              callback: ({ data, error }) => {
-                if (data) {
-                  reset(StackName.SignInScreen);
-                }
-              },
-            });
-          }}
+          style={styles.submitButton}
+          onPress={handleSubmit(handleResetPasswod)}
         >
-          Tạo Mật khẩu
+          {translate("button.resetPassword")}
         </Button>
       </View>
     </View>
   );
+};
+
+const useStyles = ({ colors, alpha }: ApplicationTheme) => {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: "center",
+      backgroundColor: colors.white,
+    },
+    imageBackground: {
+      ...StyleSheet.absoluteFillObject,
+      width: "100%",
+      height: "100%",
+    },
+    content: {
+      backgroundColor: colors.suvaGrey + alpha.alpha_50,
+      borderRadius: 25,
+      padding: 24,
+      marginHorizontal: 24,
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: 700,
+      marginBottom: 16,
+      color: colors.white,
+    },
+    submitButton: { borderRadius: 70, marginTop: 24 },
+  });
 };
 
 export default NewPasswordScreen;
